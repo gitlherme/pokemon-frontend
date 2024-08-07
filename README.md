@@ -1,7 +1,7 @@
 # Pokemon Abilities Frontend
 This is a project created to display the pokémon abilities ordered by name alphabetically.
 
-You can see this project running [here]('https://pokemonabilities.vercel.app/').
+You can see this project running LIVE [here]('https://pokemonabilities.vercel.app/').
 
 !['Pokemon ability'](https://i.imgur.com/zXK4qii.png)
 ---
