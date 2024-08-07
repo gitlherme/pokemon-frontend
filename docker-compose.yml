@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  pokemon_frontend:
+    container_name: pokemon_frontend
+    build: .
+    env_file:
+      - ./.env.local
+    expose:
+      - '3000'
+    command: pnpm start
+    ports:
+      - '3000:3000'
+    tty: true
