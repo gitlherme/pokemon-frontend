@@ -75,6 +75,7 @@ export default function SearchBar() {
                     <Button
                       size={"icon"}
                       disabled={pokemonDataQuery.isFetching}
+                      name="Search"
                     >
                       <SearchIcon />
                     </Button>

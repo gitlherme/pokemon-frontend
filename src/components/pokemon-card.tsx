@@ -12,12 +12,20 @@ import Image from "next/image";
 import { Skeleton } from "./ui/skeleton";
 
 const PokemonCardSkeleton = () => {
-  return <Skeleton className="h-[472px] w-[320px] rounded-[48px]" />;
+  return (
+    <Skeleton
+      data-testid="skeleton-pokemon"
+      className="h-[472px] w-[320px] rounded-[48px]"
+    />
+  );
 };
 
 const PokemonNotFound = () => {
   return (
-    <div className="flex flex-col gap-4 items-center justify-center my-16">
+    <div
+      data-testid="pokemon-not-found"
+      className="flex flex-col gap-4 items-center justify-center my-16"
+    >
       <Image src={missingnoGif} alt="Missing no" />
       <span className="block">Oops! Pokémon not found!</span>
     </div>
@@ -55,6 +63,7 @@ export function PokemonCard() {
             <div className="flex gap-1">
               {pokemon?.types.map((item) => (
                 <Badge
+                  data-testid="badge-type"
                   key={item.slot}
                   variant={"secondary"}
                   style={{
@@ -62,8 +71,9 @@ export function PokemonCard() {
                       pokemonTypes[item.type.name].badgeBackground,
                   }}
                 >
-                  {pokemonTypes[item.type.name].emojiIcon}
-                  {pokemonTypes[item.type.name].name}
+                  {`${pokemonTypes[item.type.name].emojiIcon} ${
+                    pokemonTypes[item.type.name].name
+                  }`}
                 </Badge>
               ))}
             </div>
@@ -74,7 +84,11 @@ export function PokemonCard() {
             </span>
             <div className="flex flex-wrap gap-2">
               {pokemon?.abilities.map((item) => (
-                <Badge key={item.slot} className="bg-yellow-500/80">
+                <Badge
+                  data-testid="badge-ability"
+                  key={item.slot}
+                  className="bg-yellow-500/80"
+                >
                   {normalizePokemonAbility(item.ability.name)}
                 </Badge>
               ))}
