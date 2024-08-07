@@ -5,7 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { IPokemon } from "../models/pokemon.model";
 
 export const getPokemonData = async (name: string) => {
-  const response = await fetch(`http://localhost:3000/pokemons/${name}`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/pokemons/${name}`
+  );
   if (response.status === 404) {
     throw new Error("Pokémon not found");
   }
